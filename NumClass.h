@@ -3,7 +3,7 @@
 //
 int isPrime(int);
 int isStrong(int);
-int ispalindrome(int);
+int isPalindrome(int);
 int isArmstrong(int);
 #ifndef BASICCLASSIFICATION_NUMCLASS_H
 #define BASICCLASSIFICATION_NUMCLASS_H
