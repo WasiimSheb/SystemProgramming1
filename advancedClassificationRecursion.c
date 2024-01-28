@@ -1,4 +1,4 @@
-
+#include"NumClass.h"
 int power2(int n, int y) {
     int  res = 1;
     while (y > 0) {
@@ -23,7 +23,7 @@ int isArmstrongRecursive(int num, int originalNum, int numDigits) {
     return (power2(digit, numDigits) + isArmstrongRecursive(num / 10, originalNum, numDigits));
 }
 
-int isArmstrong2(int num) {
+int isArmstrong(int num) {
     int numDigits = countDigits(num);
     return isArmstrongRecursive(num, num, numDigits);
 }
@@ -44,7 +44,7 @@ int isPalindromeRecursive(int num, int numDigits) {
     return isPalindromeRecursive(num, numDigits - 2);
 }
 
-int isPalindrome2(int num) {
+int isPalindrome(int num) {
     int numDigits = countDigits(num);
     return isPalindromeRecursive(num, numDigits);
 }
