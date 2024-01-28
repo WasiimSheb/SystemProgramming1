@@ -1,6 +1,7 @@
 //
 // Created by wasim on 1/21/2024.
 //
+#include"NumClass.h"
 int isPrime(int n){
     if(n<=1){
         return 0;
