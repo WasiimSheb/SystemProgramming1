@@ -34,13 +34,13 @@ $(LIBRARY): $(OBJ1) $(OBJ2)
 	ar rcs $(LIBRARY) $(OBJ1) $(OBJ2)
 
 advancedClassificationLoop.o: advancedClassificationLoop.c $(HEADER)
-	$(CC) $(CFLAGS) -c -o advancedClassificationLoop.o advancedClassificationLoop.c
+	$(CC) $(CFLAGS) -fPIC -c -o advancedClassificationLoop.o advancedClassificationLoop.c
 
 advancedClassificationRecursion.o: advancedClassificationRecursion.c $(HEADER)
-	$(CC) $(CFLAGS) -c -o advancedClassificationRecursion.o advancedClassificationRecursion.c
+	$(CC) $(CFLAGS) -fPIC -c -o advancedClassificationRecursion.o advancedClassificationRecursion.c
 
 basicClassification.o: basicClassification.c $(HEADER)
-	$(CC) $(CFLAGS) -c -o basicClassification.o basicClassification.c
+	$(CC) $(CFLAGS) -fPIC -c -o basicClassification.o basicClassification.c
 
 recursives: $(LIBRARY2)
 
