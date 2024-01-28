@@ -1,12 +1,15 @@
 CC = gcc
-SRC = basicClassification.c advancedClassificationLoop.c advancedClassificationRecursion.c main.c 
+SRC = main.c 
+SRC1 = basicClassification.c
+SRC2 = advancedClassificationLoop.c
+SRC3 = advancedClassificationRecursion.c
 OBJ1 = basicClassification.o
 OBJ2 = advancedClassificationLoop.o
 OBJ3 = advancedClassificationRecursion.o
+OBJ = main.o
 TARGET1 = mains
 TARGET2 = maindloop
 TARGET3 = maindrec
-OBJ = $(SRC:.c=.o)
 CFLAGS = -Wall
 HEADER = NumClass.h
 LIBRARY = libclassloops.a 
@@ -16,14 +19,14 @@ DYNLIBRARY4 = libclassloops.so
 
 all: $(TARGET1) $(TARGET2) $(TARGET3)
 
-$(TARGET1): $(LIBRARY2) $(HEADER) $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET1) $(SRC) -L. -lclassrec
+$(TARGET1): $(LIBRARY2) $(HEADER) $(SRC) $(SRC1) $(SRC3)
+	$(CC) $(CFLAGS) -o $(TARGET1) $(SRC) $(SRC1) $(SRC3) -L. -lclassrec
 
-$(TARGET2):$(DYNLIBRARY4) $(HEADER) $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET2) $(SRC) -L. -lclassloops
+$(TARGET2):$(DYNLIBRARY4) $(HEADER) $(SRC) $(SRC1) $(SRC2)
+	$(CC) $(CFLAGS) -o $(TARGET2) $(SRC) $(SRC1) $(SRC2) -L. -lclassloops
 
-$(TARGET3):	$(DYNLIBRARY3) $(HEADER) $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET3) $(SRC) -L. -lclassrec
+$(TARGET3):	$(DYNLIBRARY3) $(HEADER) $(SRC) $(SRC1) $(SRC3)
+	$(CC) $(CFLAGS) -o $(TARGET3) $(SRC) $(SRC1) $(SRC3) -L. -lclassrec
 
 loops: $(LIBRARY)
 
@@ -57,4 +60,4 @@ $(DYNLIBRARY4): $(OBJ1) $(OBJ2)
 .PHONY: all clean loopd loops recursived recursives
 
 clean:
-	rm -f $(LIBRARY) $(LIBRARY2) $(DYNLIBRARY3) $(DYNLIBRARY4) $(OBJ) $(TARGET1) $(TARGET2) $(TARGET3)
+	rm -f $(LIBRARY) $(LIBRARY2) $(DYNLIBRARY3) $(DYNLIBRARY4) $(OBJ) $(TARGET1) $(TARGET2) $(TARGET3) $(OBJ1) $(OBJ2) $(OBJ3)
