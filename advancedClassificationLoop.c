@@ -1,4 +1,4 @@
-
+#include "NumClass.h"
 int power(int n, int y) {
     int  res = 1;
     while (y > 0) {
@@ -25,7 +25,7 @@ int isArmstrong(int n){
     return sum == n;
 }
 
-int ispalindrome(int n){
+int isPalindrome(int n){
     int x = n;
     int c = 0;
     while(n > 0){
