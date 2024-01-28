@@ -1,6 +1,9 @@
 #include "NumClass.h"
-int power(int n, int y) {
-    int  res = 1;
+double power(double n, double y) {
+    if(y == 0){
+        return 1;
+    }
+    double res = 1;
     while (y > 0) {
         res *= n;
         y--;
