@@ -20,13 +20,13 @@ DYNLIBRARY4 = libclassloops.so
 all: $(TARGET1) $(TARGET2) $(TARGET3)
 
 $(TARGET1): $(LIBRARY2) $(HEADER) $(SRC) $(SRC1) $(SRC3)
-	$(CC) $(CFLAGS) -o $(TARGET1) $(SRC) $(SRC1) $(SRC3) -L. -lclassrec
+	$(CC) $(CFLAGS) -fPIC -o $(TARGET1) $(SRC) $(SRC1) $(SRC3) -L. -lclassrec
 
 $(TARGET2):$(DYNLIBRARY4) $(HEADER) $(SRC) $(SRC1) $(SRC2)
-	$(CC) $(CFLAGS) -o $(TARGET2) $(SRC) $(SRC1) $(SRC2) -L. -lclassloops
+	$(CC) $(CFLAGS) -fPIC -o $(TARGET2) $(SRC) $(SRC1) $(SRC2) -L. -lclassloops
 
 $(TARGET3):	$(DYNLIBRARY3) $(HEADER) $(SRC) $(SRC1) $(SRC3)
-	$(CC) $(CFLAGS) -o $(TARGET3) $(SRC) $(SRC1) $(SRC3) -L. -lclassrec
+	$(CC) $(CFLAGS) -fPIC -o $(TARGET3) $(SRC) $(SRC1) $(SRC3) -L. -lclassrec
 
 loops: $(LIBRARY)
 
