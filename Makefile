@@ -17,7 +17,7 @@ LIBRARY2 = libclassrec.a
 DYNLIBRARY3 = libclassrec.so
 DYNLIBRARY4 = libclassloops.so
 
-all: $(TARGET1) $(TARGET2) $(TARGET3)
+all: $(TARGET1) $(TARGET2) $(TARGET3) loops recursives
 
 $(TARGET1): $(LIBRARY2) $(HEADER) $(SRC) $(SRC1) $(SRC3)
 	$(CC) $(CFLAGS) -fPIC -o $(TARGET1) $(SRC) $(SRC1) $(SRC3) -L. -lclassrec
