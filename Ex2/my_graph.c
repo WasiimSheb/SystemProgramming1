@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include"algorithms.h"
+#include"my_mat.h"
 #define INF 99999
 #define V 10
-
-int graph[V][V];
+#include "stdbool.h"
 
 int main() {
     char c;
     int i, j;
+
+    int graph[V][V];
     while (scanf(" %c", &c) && c != 'D') {
         switch (c) {
             case 'A':
@@ -15,12 +16,14 @@ int main() {
                 break;
             case 'B':
                 scanf("%d %d", &i, &j);
-                printf("Path exists from vertex %d to vertex %d: %s\n", i, j, thereisapath(graph, i, j) ? "Yes" : "No");
+                bool a = thereisapath(graph, i, j);
+                if(i == j){ printf("False\n");}
+                else {printf("%s \n", a? "True" : "False");}
                 break;
             case 'C':
                 scanf("%d %d", &i, &j);
-                shortestpath(graph);
-                printf("The shortest path from vertex %d to vertex %d is: %d\n", i, j, graph[i][j]);
+                int ans = shortestpath(graph, i, j);
+                printf("%d\n",ans);
                 break;
             default:
                 printf("Invalid option: %c\n", c);
