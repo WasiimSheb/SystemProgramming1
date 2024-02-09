@@ -26,4 +26,4 @@ my_knapsack.o: my_knapsack.c
 .PHONY: all clean
 
 clean: 
-	rm -f $(OBJ) $(TARGET1) $(TARGET2) 
+	rm -f $(OBJ) $(TARGET1) $(TARGET2) my_knapsack.o
