@@ -42,13 +42,11 @@ void StrList_free(StrList* p) {
     }
 
     Node* current = p->head;
-    while (current) {
+    while (p -> head != NULL) {
         Node* temp = current -> _next;
         Nodefree(temp);
         current = current -> _next;
     }
-    p -> head = NULL;
-    p -> size = 0;
     free(p);
 }
 
@@ -57,6 +55,7 @@ size_t StrList_size(const StrList* StrList){
 }
 
 void StrList_insertLast(StrList* StrList, const char* data){
+    if(StrList == NULL){ return;}
     Node *newNode = (Node*) malloc(sizeof (Node));
     newNode -> value = strdup(data);
     newNode -> _next = NULL;
@@ -75,11 +74,7 @@ void StrList_insertLast(StrList* StrList, const char* data){
 }
 
 void StrList_insertAt(StrList* StrList, const char* data, int index){
-    if (index >= StrList_size(StrList) || StrList == NULL){
-        StrList_insertLast(StrList, data);
-        return;
-    }
-    if(index < 0){
+    if (index >= StrList_size(StrList) || StrList == NULL || index < 0){
         return;
     }
     Node *newNode = (Node*) malloc(sizeof (Node));
@@ -113,14 +108,14 @@ void StrList_insertAt(StrList* StrList, const char* data, int index){
 char* StrList_firstData(const StrList* StrList){
     if (StrList != NULL){
         if (StrList -> head != NULL){
-            printf("%s", StrList -> head -> value);
-            exit(0);
+            return StrList -> head -> value;
         }
     }
     return NULL;
 }
 
 void StrList_print(const StrList* StrList) {
+    if(StrList == NULL){ return;}
     Node *current = StrList->head;
     while (current -> _next != NULL) {
         printf("%s ", current->value);
@@ -315,6 +310,4 @@ int StrList_isSorted(StrList* StrList) {
     }
     return 1;
 }
-
-
 
