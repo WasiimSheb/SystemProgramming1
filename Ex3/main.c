@@ -63,9 +63,9 @@ int main() {
                 break;
             case 13:
                 if (StrList_isSorted(strList) == 1) {
-                    printf("True\n");
+                    printf("true\n");
                 } else {
-                    printf("False\n");
+                    printf("false\n");
                 }
                 break;
         }
