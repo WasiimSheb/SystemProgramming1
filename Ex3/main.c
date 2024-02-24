@@ -14,7 +14,8 @@ int main() {
 
         switch (c) {
             case 0:
-                break;
+                StrList_free(strList);
+                return 0;
             case 1:
                 scanf("%d", &y);
                 for (int i = 0; i < y; ++i) {
