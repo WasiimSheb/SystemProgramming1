@@ -114,8 +114,11 @@ char* StrList_firstData(const StrList* StrList){
     return NULL;
 }
 
-void StrList_print(const StrList* StrList) {
-    if(StrList == NULL){ return;}
+ void StrList_print(const StrList* StrList) {
+    if(StrList == NULL || StrList -> head == NULL){ 
+        printf("\n");
+        return;
+    }
     Node *current = StrList->head;
     while (current -> _next != NULL) {
         printf("%s ", current->value);
@@ -218,6 +221,7 @@ void StrList_removeAt(StrList* StrList, int index){
     StrList -> size--;
 }
 
+
 int StrList_isEqual(const StrList* StrList1, const StrList* StrList2){
     if((StrList1 == NULL && StrList2 != NULL) || (StrList1 != NULL && StrList2 == NULL)){return 0;}
     if(StrList_size(StrList1) != StrList_size(StrList2)){return 0;}
@@ -310,4 +314,3 @@ int StrList_isSorted(StrList* StrList) {
     }
     return 1;
 }
-
