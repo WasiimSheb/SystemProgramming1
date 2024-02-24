@@ -1,16 +1,19 @@
-CC = gcc
-Cflags = -Wall
-all: StrList
+CC=gcc
+AR=ar
+CFLAGS= -Wall
 
-StrList: StrList.o main.o
-    gcc -Wall main.o StrList.o -o StrList
+all: StrList 
 
-StrList.o: StrList.c StrList.h
-    $(CC) $(Cflags) -c StrList.c
+StrList: main.o StrList.o
+	$(CC) $(CFLAGS) main.o StrList.o -o StrList
 
 main.o: main.c
-    $(CC) $(Cflags) -c main.c
+	$(CC) -c main.c
 
-.Phony: clean all
+StrList.o: StrList.c StrList.h
+	$(CC) -c StrList.c	
 
-clean: rm -f main.o StrList.o
+.PHONY: clean all
+
+clean:
+	rm -f *.o *.a *.so StrList
